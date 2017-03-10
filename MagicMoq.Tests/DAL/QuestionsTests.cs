@@ -128,13 +128,13 @@ namespace MagicMoq.Tests.DAL
         {
             // Arrange
             Mock<Answers> mock_answers = new Mock<Answers>();
-            // Add code that mocks the "True" method response
+            mock_answers.Setup(a => a.True()).Returns(true);
 
             Questions questions = new Questions(mock_answers.Object);
 
             // Act
             bool expected_result = true;
-            bool actual_result = questions.ReturnFalse();
+            bool actual_result = questions.ReturnTrue();
 
             // Assert
             Assert.AreEqual(expected_result, actual_result);
@@ -145,7 +145,8 @@ namespace MagicMoq.Tests.DAL
         {
             // Arrange
             Mock<Answers> mock_answers = new Mock<Answers>();
-            // Add code that mocks the "False" method response
+            mock_answers.Setup(a => a.False()).Returns(false);
+
             Questions questions = new Questions(mock_answers.Object);
 
             // Act

@@ -74,12 +74,12 @@ namespace MagicMoq.DAL
 
         public bool ReturnFalse()
         {
-            throw new NotImplementedException();
+            return Wand.False();
         }
 
         public bool ReturnTrue()
         {
-            throw new NotImplementedException();
+            return Wand.True();
         }
 
         public string SayHelloWorld()
