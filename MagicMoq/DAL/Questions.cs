@@ -24,7 +24,7 @@ namespace MagicMoq.DAL
 
         public List<int> CountToFive()
         {
-            throw new NotImplementedException();
+            return Wand.ListOfNInts(5);
         }
 
         public List<int> FirstThreeEvenInts()
@@ -39,7 +39,7 @@ namespace MagicMoq.DAL
 
         public int FourMinusTwo()
         {
-            throw new NotImplementedException();
+            return Wand.Two();
         }
 
         public int FourMinusTwoPlusOne()
@@ -89,17 +89,17 @@ namespace MagicMoq.DAL
 
         public string SayNothing()
         {
-            throw new NotImplementedException();
+            return Wand.EmptyString();
         }
 
         public int TwoMinusZero()
         {
-            throw new NotImplementedException();
+            return Wand.Two();
         }
 
         public int TwoPlusTwo()
         {
-            throw new NotImplementedException();
+            return Wand.Four();
         }
 
         public int ZeroPlusZero()
