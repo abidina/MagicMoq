@@ -29,12 +29,35 @@ namespace MagicMoq.DAL
 
         public List<int> FirstThreeEvenInts()
         {
-            throw new NotImplementedException();
+            List<int> numbers = Wand.ListOfNInts(6);
+            List<int> result = new List<int>();
+            foreach (var number in numbers)
+            {
+                if (number % 2 == 0)
+                {
+                    result.Add(number);
+                }
+            }
+            return result;
         }
 
         public List<int> FirstThreeOddInts()
         {
-            throw new NotImplementedException();
+            List<int> numbers = Wand.ListOfNInts(6);
+            List<int> result = new List<int>();
+            foreach (var number in numbers)
+            {
+                if (number % 2 != 0)
+                {
+                    result.Add(number);
+                }
+
+                if (result.Count == 3)
+                {
+                    break;
+                }
+            }
+            return result;
         }
 
         public int FourMinusTwo()
@@ -44,12 +67,12 @@ namespace MagicMoq.DAL
 
         public int FourMinusTwoPlusOne()
         {
-            throw new NotImplementedException();
+            return Wand.Three();
         }
 
         public int FourPlusZero()
         {
-            throw new NotImplementedException();
+            return Wand.Four();
         }
 
         public int OneMinusOne()
@@ -104,7 +127,7 @@ namespace MagicMoq.DAL
 
         public int ZeroPlusZero()
         {
-            throw new NotImplementedException();
+            return Wand.Zero();
         }
     }
 }

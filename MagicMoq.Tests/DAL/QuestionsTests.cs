@@ -195,7 +195,18 @@ namespace MagicMoq.Tests.DAL
         [TestMethod]
         public void EnsureFourMinusTwoPlusOneReturnsThree()
         {
-            // Write this test
+            // Arrange
+            Mock<Answers> mock_answers = new Mock<Answers>();
+            mock_answers.Setup(a => a.Three()).Returns(3);
+            // Add code that mocks the "Three" method response
+            Questions questions = new Questions(mock_answers.Object);
+
+            // Act
+            int expected_result = 3;
+            int actual_result = questions.FourMinusTwoPlusOne();
+
+            // Assert
+            Assert.AreEqual(expected_result, actual_result);
         }
 
         [TestMethod]
@@ -219,31 +230,91 @@ namespace MagicMoq.Tests.DAL
         public void EnsureCountToFiveReturnsListOfFiveInts()
         {
             Mock<Answers> mock_answers = new Mock<Answers>();
+            //It class: a Matcher of Argument types
             mock_answers.Setup(a => a.ListOfNInts(It.IsAny<int>())).Returns(new List<int> { 1, 2, 3, 4, 5 });
+
+            Questions questions = new Questions(mock_answers.Object);
+
+            //Act
+            List<int> expected_result = new List<int> { 1, 2, 3, 4, 5 };
+            List<int> actual_result = questions.CountToFive();
+
+            //Assert
+            //1. Collection Assert
+            CollectionAssert.AreEqual(expected_result, actual_result);
+
         }
 
         [TestMethod]
         public void EnsureFirstThreeEvenIntsReturnsListOfThreeEvenInts()
         {
-            // Write this test
+            Mock<Answers> mock_answers = new Mock<Answers>();
+
+            //'i' needs to be large enough so you get a list that CONTAINS 3 even numbers
+            mock_answers.Setup(a => a.ListOfNInts(It.Is<int>(i => i == 6))).Returns(new List<int> { 1, 2, 3, 4, 5, 6 });
+            Questions questions = new Questions(mock_answers.Object);
+
+            // Act
+            List<int> expectedResult = new List<int> { 2, 4, 6 };
+            List<int> actualResult = questions.FirstThreeEvenInts();
+
+            //Collection Assert
+            CollectionAssert.AreEqual(expectedResult, actualResult);
+
         }
 
         [TestMethod]
         public void EnsureFirstThreeOddIntsReturnsListOfThreeOddInts()
         {
-            // Write this test
+            Mock<Answers> mock_answers = new Mock<Answers>();
+
+            //'i' needs to be large enough so you get a list that CONTAINS 3 even numbers
+            mock_answers.Setup(a => a.ListOfNInts(It.Is<int>(i => i == 6))).Returns(new List<int> { 1, 2, 3, 4, 5, 6 });
+            Questions questions = new Questions(mock_answers.Object);
+
+            // Act
+            List<int> expectedResult = new List<int> { 1, 3, 5 };
+            List<int> actualResult = questions.FirstThreeOddInts();
+
+            //Collection Assert
+            CollectionAssert.AreEqual(expectedResult, actualResult);
+
+
+
         }
 
         [TestMethod]
         public void EnsureZeroPlusZeroReturnsZero()
         {
-            // Write this test
+            // Arrange
+            Mock<Answers> mock_answers = new Mock<Answers>();
+            mock_answers.Setup(a => a.Zero()).Returns(0);
+            // Add code that mocks the "Three" method response
+            Questions questions = new Questions(mock_answers.Object);
+
+            // Act
+            int expected_result = 0;
+            int actual_result = questions.ZeroPlusZero();
+
+            // Assert
+            Assert.AreEqual(expected_result, actual_result);
         }
 
         [TestMethod]
         public void EnsureFourPlusZeroReturnsFour()
         {
-            // Write this test
+            // Arrange
+            Mock<Answers> mock_answers = new Mock<Answers>();
+            mock_answers.Setup(a => a.Four()).Returns(4);
+            // Add code that mocks the "Three" method response
+            Questions questions = new Questions(mock_answers.Object);
+
+            // Act
+            int expected_result = 4;
+            int actual_result = questions.FourPlusZero();
+
+            // Assert
+            Assert.AreEqual(expected_result, actual_result);
         }
 
         [TestMethod]
